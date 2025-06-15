@@ -6,4 +6,8 @@
         flex-direction:column;
         gap:20px;
     }
+
+    &__sideByside{
+        display:flex;
+    }
 }
