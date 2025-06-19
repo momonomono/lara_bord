@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 
 @section("content")
-    <div class="l-main">
+    <div class="l-content">
         <article class="p-grid__todo">
-            <h1>Todo List</h1>
+            <h1 class="c-text__title">Todo List</h1>
             <ul class="p-grid__todo-list">
                 <li class="p-grid__todo-item">
                     <div class="p-grid__todo-icon">
@@ -25,9 +25,19 @@
                     </div>
                 </li>
             </ul>
-            <section class="p-grid__todo-input">
-                <input type="text" class="c-form__main">
-                <button class="c-button__main">送信</button>
+            <section class="p-grid__todo-form">
+                <form method="post" action="{{ route('todo.store') }}">
+                    @csrf
+                    <label class="p-grid__todo-label">
+                        <p class="c-text__normal">タイトル</p>
+                        <input type="text" class="c-form__main" name="title">
+                    </label>
+                    <label class="p-grid__todo-label">
+                        <p class="c-text__normal">詳細</p>
+                        <textarea class="c-form__textarea"></textarea>
+                    </label>
+                    <button class="c-button__main">送信</button>
+                </form>
             </section>
         </article>
     </div>

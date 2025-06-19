@@ -1,7 +1,13 @@
 .c-text{
+    &__title{
+        font-size: 30px;
+        color: #000000;
+    }
+
     &__normal{
         margin:0;
         padding:0;
         font-size:20px;
+        color: #000000;
     }
 }
