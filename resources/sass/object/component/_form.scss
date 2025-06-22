@@ -1,14 +1,27 @@
 .c-form{
     &__main{
-        min-width:800px;
+        width:100%;
+        max-width: 800px;
         height: 30px;
         background: #ffffff;
-        box-shadow: inset 0px 0px 2px #000000;;
-        border:1px solid #000000;
+        color: #000000;
+        font-size: 20px;
         padding-left:5px;
         box-sizing: border-box;
-        padding-left:10px;
+        border: none;
+        outline: none;
+    }
+
+    &__textarea{
+        background: #ffffff;
+        color: #000000;
+        font-size: 20px;
+        padding-left: 5px;
         box-sizing: border-box;
+
+        &:focus{
+            outline: none;
+        }
     }
 
     &__select{
@@ -17,13 +30,9 @@
         text-align: center;
         display: flex;
         align-items: center;
+        border: none;
         outline: none;
-        transition: all 0.5s;
-        
-        &:hover {
-            background:#f0f0f0;
-            box-shadow: inset 0px 0px 2px #000000;
-        }
+        box-shadow: none;;
     }
 }
 

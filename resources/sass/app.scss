@@ -1,14 +1,9 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// *{
+//     background:#ffffff;
+// }
 
 // Custom Styles
-@import "foundation/reset.css";
-@import "layouts/app";
-@import "object/component/app";
-@import "object/project/app";
+@use "foundation/reset" as *;
+@use "layouts/index" as *;
+@use "object/component/index" as *;
+@use "object/project/index" as *;

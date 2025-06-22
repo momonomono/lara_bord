@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get("/create", [App\Http\Controllers\HomeController::class, 'create'])->name("create");
 
 Route::get("/", [App\Http\Controllers\MainController::class, 'todo'])->name("todo");
+Route::post("/", [App\Http\Controllers\MainController::class, 'store'])->name("todo.store");
+
+Route::get("/delete", [App\Http\Controllers\DeleteController::class, 'delete'])->name("todo.delete");
