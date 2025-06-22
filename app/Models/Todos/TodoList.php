@@ -9,5 +9,9 @@ class TodoList extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'title',
+        'status_id',
+        'detail'
+    ];
 }
