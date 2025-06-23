@@ -5,9 +5,15 @@
     }
 
     &__normal{
-        margin:0;
-        padding:0;
         font-size:20px;
         color: #000000;
+    }
+
+    &__detail{
+        position: relative;
+        font-size: 20px;
+        color: #000000;
+        top: 100%;
+        max-width: 80%;
     }
 }

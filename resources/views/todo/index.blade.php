@@ -8,14 +8,27 @@
             <ul class="p-grid__todo-list">
                 @foreach ($todolists as $todolist)
                     <li class="p-grid__todo-item">
-                        <div class="p-grid__todo-icon">
+                        <div class="p-grid__todo-text">
                             <p class="c-text__normal">{{ $todolist->title }}</p>
+                            <p class="c-text__detail">{{ $todolist->detail }}</p>
                         </div>
                         <div class="p-grid__todo-icon">
                             <select class="c-form__select" name="status_id">
-                                <option value="0">未着手</option>
-                                <option value="1">進行中</option>
-                                <option value="2">完了</option>
+                                <option value="1"
+                                    @if($todolist->status_id == 1)
+                                        selected
+                                    @endif
+                                >未着手</option>
+                                <option value="2"
+                                    @if($todolist->status_id == 2)
+                                        selected
+                                    @endif
+                                >進行中</option>
+                                <option value="3"
+                                    @if($todolist->status_id == 3)
+                                        selected
+                                    @endif
+                                >完了</option>
                             </select>
                             <a data-id="1">
                                 <img class="c-image__icon" src="{{ asset('img/edit.png') }}">
@@ -37,7 +50,7 @@
                         <p class="c-text__normal">タイトル</p>
                         <input type="text" class="c-form__main" name="title">
                     </label>
-                    <input type="hidden" name="status_id" value="0">
+                    <input type="hidden" name="status_id" value="1">
                     <label class="p-grid__todo-label">
                         <p class="c-text__normal">詳細</p>
                         <textarea class="c-form__textarea" name="detail"></textarea>
