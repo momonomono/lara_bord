@@ -2,9 +2,11 @@
 
 @section("content")
     <div class="l-content">
-        <p>{{ $todolists }}</p>
+        @if (session("msg"))
+            <p class="c-text__normal">{{ session("errMsg")}}</p>
+        @endif
+        <h1 class="c-text__title">Todo List</h1>
         <article class="p-grid__todo">
-            <h1 class="c-text__title">Todo List</h1>
             <ul class="p-grid__todo-list">
                 @foreach ($todolists as $todolist)
                     <li class="p-grid__todo-item">
@@ -34,7 +36,7 @@
                                 <img class="c-image__icon" src="{{ asset('img/edit.png') }}">
                             </a>
                             
-                            <a id="js-delete" href="{{ route('todo.delete', ['id' => 1]) }}">
+                            <a id="js-delete" href="{{ route('todo.delete', ['id' => $todolist->id]) }}">
                                 <img class="c-image__icon" src="{{ asset('img/delete.png') }}">
                             </a>
 

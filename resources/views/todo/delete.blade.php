@@ -8,5 +8,6 @@
 </head>
 <body>
     移動しました
+    <p class="c-text__normal">{{ $id }}</p>
 </body>
 </html>
