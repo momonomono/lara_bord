@@ -8,26 +8,34 @@
         <h1 class="c-text__title">Todo List</h1>
         <article class="p-grid__todo">
             <ul class="p-grid__todo-list">
-                @foreach ($todolists as $todolist)
+                @foreach ($todoLists as $todoList)
                     <li class="p-grid__todo-item">
                         <div class="p-grid__todo-text">
-                            <p class="c-text__normal">{{ $todolist->title }}</p>
-                            <p class="c-text__detail">{{ $todolist->detail }}</p>
+                            <p class="c-text__normal">{{ $todoList->title }}</p>
+                            <p class="c-text__detail">{{ $todoList->detail }}</p>
                         </div>
                         <div class="p-grid__todo-icon">
                             <select class="c-form__select" name="status_id">
+                                <!-- optionはstatusの配列を使うと、bladeでの表示が楽になる -->
+                                <!-- HTMLのタグ内では三項演算子を使用するのが一般的かな -->
+                                @foreach($statuses as $key => $status)
+                                    <option value="{{ $key }}"
+                                        {{ $todoList->status_id == $key ? 'selected' : '' }}
+                                    >{{ $status }}</option>
+                                @endforeach
+                                
                                 <option value="1"
-                                    @if($todolist->status_id == 1)
+                                    @if($todoList->status_id == 1)
                                         selected
                                     @endif
                                 >未着手</option>
                                 <option value="2"
-                                    @if($todolist->status_id == 2)
+                                    @if($todoList->status_id == 2)
                                         selected
                                     @endif
                                 >進行中</option>
                                 <option value="3"
-                                    @if($todolist->status_id == 3)
+                                    @if($todoList->status_id == 3)
                                         selected
                                     @endif
                                 >完了</option>
@@ -36,7 +44,7 @@
                                 <img class="c-image__icon" src="{{ asset('img/edit.png') }}">
                             </a>
                             
-                            <a id="js-delete" href="{{ route('todo.delete', ['id' => $todolist->id]) }}">
+                            <a id="js-delete" href="{{ route('todo.delete', ['id' => $todoList->id]) }}">
                                 <img class="c-image__icon" src="{{ asset('img/delete.png') }}">
                             </a>
 
